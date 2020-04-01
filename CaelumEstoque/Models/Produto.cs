@@ -17,10 +17,13 @@ namespace CaelumEstoque.Models
 
         public CategoriaDoProduto Categoria { get; set; }
 
+        
         public int? CategoriaId { get; set; }
 
+        [Required, StringLength(30)]
         public String Descricao { get; set; }
 
+        [Range(0, 100, ErrorMessage = "Quantidade deve ser entre {1} e {2}.")]
         public int Quantidade { get; set; }
     }
 }

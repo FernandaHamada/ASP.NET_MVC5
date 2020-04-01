@@ -36,6 +36,10 @@ namespace CaelumEstoque.Controllers
             {
                 ModelState.AddModelError("produto.Invalido", "Informatica com preco abaixo de 100 reais");
             }
+            if (produto.Preco < 0)
+            {
+                ModelState.AddModelError("produto.Preco", "Preço inválido!");
+            }
             if (ModelState.IsValid)// modelo obedece as regras de validação
             {
                 ProdutosDAO dao = new ProdutosDAO();
