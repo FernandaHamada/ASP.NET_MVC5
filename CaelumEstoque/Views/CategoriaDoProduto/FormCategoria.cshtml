@@ -1,0 +1,26 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>FormCategoria</title>
+</head>
+<body>
+    <div> 
+        <form action="/CategoriaDoProduto/Adicionar" method="post">
+            <label for="nome">Nome:</label>
+            <input id="nome" name="categoriaDoProduto.Nome" />
+
+            <label for="descricao">Descrição:</label>
+            <input id="descricao" name="categoriaDoProduto.Descricao" />
+
+            <input type="submit" value="Cadastrar" />
+        </form>
+    </div>
+</body>
+</html>
