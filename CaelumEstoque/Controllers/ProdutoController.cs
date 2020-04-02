@@ -4,10 +4,12 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using CaelumEstoque.DAO;
+using CaelumEstoque.Filtros;
 using CaelumEstoque.Models;
 
 namespace CaelumEstoque.Controllers
 {
+    [AutorizacaoFilter] // antes de executa ele chama o AutorizarFilterAttribute 
     public class ProdutoController : Controller
     {
         [Route("produtos", Name ="ListaProdutos")]
@@ -28,6 +30,7 @@ namespace CaelumEstoque.Controllers
         }
 
         [HttpPost] // requisições enviadas do method post, deixa de exibir info na url o method post
+        [ValidateAntiForgeryToken] // se for valido, então passa a requisição
         public ActionResult Adicionar(Produto produto)
         {
             int idDaInformatica = 1;
@@ -69,7 +72,7 @@ namespace CaelumEstoque.Controllers
             ProdutosDAO dao = new ProdutosDAO();
             Produto produto = dao.BuscaPorId(id);
             produto.Quantidade--;
-            dao.Atualiza(produto);
+            dao.Atualiza(produto); // valor de produto decrementado
             return Json(produto);
         }
     }

@@ -11,6 +11,7 @@ namespace CaelumEstoque.Controllers
         // GET: Contador
         public ActionResult Index()
         {
+            // contador de acesso a página
             object valorNaSession = Session["contador"];     //Session é um IDictionary <string, object>
             int contador = Convert.ToInt32(valorNaSession);
             contador++;
